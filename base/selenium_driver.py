@@ -149,7 +149,7 @@ class BasePage():
         Check if element is displayed
         Either provide element or a combination of locator and locatorType
         """
-        isDisplayed = False
+        is_display = False
         try:
             if locator:  # This means if locator is not empty
                 element = self.get_element(locator, locator_type)
@@ -179,7 +179,7 @@ class BasePage():
             self.log.info("Element not found")
             return False
 
-    def waitForElement(self, locator, locator_type="id", timeout=10, pollFrequency=0.5):
+    def wait_for_element(self, locator, locator_type="id", timeout=10, pollFrequency=0.5):
         element = None
         try:
             byType = self.get_by_type(locator_type)
@@ -192,7 +192,7 @@ class BasePage():
             print_stack()
         return element
 
-    def webScroll(self, direction="up"):
+    def web_scroll(self, direction="up"):
         """
         Scroll Browser up and down
         """
