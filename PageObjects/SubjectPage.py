@@ -12,51 +12,51 @@ class Subject(Login):
     
     @allure.step('Click on add new button')    
     def click_on_add_new_subject_button(self):
-        self.elementClick(*Locators.ADD_NEW_QUESTION_BUTTON)
+        self.element_click(*Locators.ADD_NEW_QUESTION_BUTTON)
     
     @allure.step('Fill new subject input')    
     def add_new_subject_input_type(self, subject_data):
         time.sleep(2)
-        self.sendKeys(subject_data, *SubjectPageLocators.INPUT_SUBJECT)
+        self.send_key(subject_data, *SubjectPageLocators.INPUT_SUBJECT)
     
     @allure.step('Click on save button')     
     def new_subject_add_save_button(self):
         time.sleep(1)
-        self.elementClick(*Locators.SAVE_BUTTON)
+        self.element_click(*Locators.SAVE_BUTTON)
     
     @allure.step('Display success message')    
     def display_message_respect_of_subject(self):
-        return self.isElementDisplayed(*Locators.DISPLAY_MESSAGE)
+        return self.is_element_displayed(*Locators.DISPLAY_MESSAGE)
     
     @allure.step('Display required validation message') 
     def display_error_message_respect_of_subject(self):
-        return self.isElementDisplayed(*Locators.PARSLEY_REQUIRED)
+        return self.is_element_displayed(*Locators.PARSLEY_REQUIRED)
     
     @allure.step('Display pattern validation message')
     def display_error_message_respect_of_parsley_pattern(self):
-        return self.isElementDisplayed(*Locators.PARSLEY_PATTERN)
+        return self.is_element_displayed(*Locators.PARSLEY_PATTERN)
     
     @allure.step('Row count of subject table') 
     def row_count_of_subject_table(self):
-        return self.getElementList(*Locators.TABLE_ROW_COUNT)
+        return self.get_element_list(*Locators.TABLE_ROW_COUNT)
     
     @allure.step('Click on delete button') 
     def click_on_delete_button(self):
-        self.elementClick(*Locators.DELETE_BUTTON)
+        self.element_click(*Locators.DELETE_BUTTON)
     
     @allure.step('Click on edit button')    
     def click_on_edit_button(self):
-        self.elementClick(*Locators.EDIT_BUTTON)
+        self.element_click(*Locators.EDIT_BUTTON)
     
     @allure.step('Get text of table')    
     def get_text_on_table_of_subject(self):
-        element = self.getText(*SubjectPageLocators.GET_TEXT_SUBJECT)
+        element = self.get_text(*SubjectPageLocators.GET_TEXT_SUBJECT)
         return element
     
     @allure.step('Click on cancel button') 
     def click_on_cancel_button(self):
         time.sleep(2)
-        self.elementClick(*Locators.CLOSE_BUTTON)
+        self.element_click(*Locators.CLOSE_BUTTON)
         
     def section_open_of_subject_section(self):
         self.fill_username_password_input(read_configuration("crediential","login_username"), read_configuration("crediential","login_password"))
@@ -105,10 +105,10 @@ class Subject(Login):
         self.click_on_edit_button()
         time.sleep(2)
         if subject_data:
-            self.clearElement(*SubjectPageLocators.INPUT_SUBJECT)
+            self.clear_element(*SubjectPageLocators.INPUT_SUBJECT)
             self.add_new_subject_input_type(subject_data)
         else:
-            self.clearElement(*SubjectPageLocators.INPUT_SUBJECT)
+            self.clear_element(*SubjectPageLocators.INPUT_SUBJECT)
         self.new_subject_add_save_button()
 
     def validation_message_for_subject(self):

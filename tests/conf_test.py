@@ -2,8 +2,8 @@ import pytest
 import allure
 
 from allure_commons.types import AttachmentType
-from base.webdriverfactory import WebDriverFactory
-from Utilities.logger import logclass
+from base.webdriver_factory import WebDriverFactory
+from Utilities.logger import LogClass
 from Utilities.constants import *
 from Utilities.generate_email import *
 from Utilities.Readconfigurations import *
@@ -18,10 +18,10 @@ def setup_and_teardown(request):
     global driver
     browser = request.config.getoption("--browser")
     webdriver_data = WebDriverFactory(browser)
-    driver = webdriver_data.getWebDriverInstance()
+    driver = webdriver_data.get_webdriver_wait()
     if request.cls is not None:
         request.cls.driver = driver
-        request.cls.log = logclass(driver)
+        request.cls.log = LogClass(driver)
     yield
     driver.quit()
 

@@ -8,7 +8,7 @@ class WebDriverFactory():
     def __init__(self, browser):
         self.browser = browser
 
-    def getWebDriverInstance(self):
+    def get_webdriver_wait(self):
         url = read_configuration("Url", "base_url")
         if self.browser == "firefox":
             driver = webdriver.Firefox()

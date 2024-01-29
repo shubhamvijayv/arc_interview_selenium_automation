@@ -8,112 +8,112 @@ import time
 import os
 
 import Utilities.logger as cl
-class Base_Page():
+class BasePage():
     
-    log = cl.logclass.customLogger(logging.DEBUG)
+    log = cl.LogClass.custom_logger(logging.DEBUG)
 
     def __init__(self, driver):
         self.driver = driver
 
-    def screenShot(self, resultMessage):
+    def screenshot(self, result_message):
         """
         Takes screenshot of the current open web page
         """
-        fileName = resultMessage + "." + str(round(time.time() * 1000)) + ".png"
-        screenshotDirectory = "../screenshots/"
-        relativeFileName = screenshotDirectory + fileName
-        currentDirectory = os.path.dirname(__file__)
-        destinationFile = os.path.join(currentDirectory, relativeFileName)
-        destinationDirectory = os.path.join(currentDirectory, screenshotDirectory)
+        file_name = result_message + "." + str(round(time.time() * 1000)) + ".png"
+        screenshot_directory = "../screenshots/"
+        relative_file_name = screenshot_directory + file_name
+        current_directory = os.path.dirname(__file__)
+        destination_file = os.path.join(current_directory, relative_file_name)
+        destination_directory = os.path.join(current_directory, screenshot_directory)
 
         try:
-            if not os.path.exists(destinationDirectory):
-                os.makedirs(destinationDirectory)
-            self.driver.save_screenshot(destinationFile)
-            self.log.info("Screenshot save to directory: " + destinationFile)
+            if not os.path.exists(destination_directory):
+                os.makedirs(destination_directory)
+            self.driver.save_screenshot(destination_file)
+            self.log.info("Screenshot save to directory: " + destination_file)
         except:
             self.log.error("### Exception Occurred when taking screenshot")
             print_stack()
 
-    def getTitle(self):
+    def get_title(self):
         return self.driver.title
 
-    def getByType(self, locatorType):
-        locatorType = locatorType.lower()
-        if locatorType == "id":
+    def get_by_type(self, locator_type):
+        locator_type = locator_type.lower()
+        if locator_type == "id":
             return By.ID
-        elif locatorType == "name":
+        elif locator_type == "name":
             return By.NAME
-        elif locatorType == "xpath":
+        elif locator_type == "xpath":
             return By.XPATH
-        elif locatorType == "css":
+        elif locator_type == "css":
             return By.CSS_SELECTOR
-        elif locatorType == "class":
+        elif locator_type == "class":
             return By.CLASS_NAME
-        elif locatorType == "link":
+        elif locator_type == "link":
             return By.LINK_TEXT
         else:
-            self.log.info("Locator type " + locatorType + " not correct/supported")
+            self.log.info("Locator type " + locator_type + " not correct/supported")
         return False
 
-    def getElement(self, locator, locatorType="id"):
+    def get_element(self, locator, locator_type="id"):
         """
         Get an element
         """
         element = None
         try:
-            locatorType = locatorType.lower()
-            byType = self.getByType(locatorType)
+            locator_type = locator_type.lower()
+            byType = self.get_by_type(locator_type)
             element = self.driver.find_element(byType, locator)
-            self.log.info("Element Found with locator: " + locator + " locatorType: " + locatorType)
+            self.log.info("Element Found with locator: " + locator + " locator_type: " + locator_type)
         except:
-            self.log.error("Element not found with locator: " + locator + " locatorType: " + locatorType)
+            self.log.error("Element not found with locator: " + locator + " locator_type: " + locator_type)
         return element
 
-    def getElementList(self, locator, locatorType="id"):
+    def get_element_list(self, locator, locator_type="id"):
         """
         Get a list of elements
         """
         element = None
         try:
-            locatorType = locatorType.lower()
-            byType = self.getByType(locatorType)
-            element = self.driver.find_elements(byType, locator)
-            self.log.info("Element list found with locator: " + locator + " and locatorType: " + locatorType)
+            locator_type = locator_type.lower()
+            by_type = self.get_by_type(locator_type)
+            element = self.driver.find_elements(by_type, locator)
+            self.log.info("Element list found with locator: " + locator + " and locator_type: " + locator_type)
         except:
-            self.log.error("Element list not found with locator: " + locator + " and locatorType: " + locatorType)
+            self.log.error("Element list not found with locator: " + locator + " and locator_type: " + locator_type)
         return element
 
-    def elementClick(self, locator="", locatorType="id", element=None):
-        """Either provide element or a combination of locator and locatorType"""
+    def element_click(self, locator="", locator_type="id", element=None):
+        """Either provide element or a combination of locator and locator_type"""
         try:
             if locator:
-                element = self.getElement(locator, locatorType)
+                element = self.get_element(locator, locator_type)
             element.click()
-            self.log.info("Clicked on element with locator: " + locator + " locatorType: " + locatorType)
+            self.log.info("Clicked on element with locator: " + locator + " locator_type: " + locator_type)
         except:
-            self.log.error("Cannot click on the element with locator: " + locator + " locatorType: " + locatorType)
-            # print_stack()
+            self.log.error("Cannot click on the element with locator: " + locator + " locator_type: " + locator_type)
+            print_stack()
 
-    def sendKeys(self, data, locator="", locatorType="id", element=None):
+    def send_key(self, data, locator="", locator_type="id", element=None):
         """
         Send keys to an element - Either provide element or a combination of locator and locatorType
         """
         try:
             if locator:  # This means if locator is not empty
-                element = self.getElement(locator, locatorType)
+                element = self.get_element(locator, locator_type)
             element.send_keys(data)
-            self.log.info("Sent data on element with locator: " + locator + " locatorType: " + locatorType)
+            self.log.info("Sent data on element with locator: " + locator + " locator_type: " + locator_type)
         except:
-            self.log.error("Cannot send data on the element with locator: " + locator + " locatorType: " + locatorType)
+            self.log.error("Cannot send data on the element with locator: " + locator + " locator_type: " + locator_type)
             # print_stack()
 
-    def getText(self, locator="", locatorType="id", element=None, info=""):
-        """Get 'Text' on an element - Either provide element or a combination of locator and locatorType"""
+    def get_text(self, locator="", locator_type="id", element=None, info=""):
+        """Get 'Text' on an element - Either provide element or a combination of locator and locator_type"""
         try:
             if locator: 
                 self.log.debug("In locator condition")
-                element = self.getElement(locator, locatorType)
+                element = self.get_element(locator, locator_type)
             self.log.debug("Before finding text")
             text = element.text
             self.log.debug("After finding element, size is: " + str(len(text)))
@@ -129,22 +129,22 @@ class Base_Page():
             # text = None
         return text
 
-    def isElementPresent(self, locator="", locatorType="id", element=None):
-        """Check if element is present - Either provide element or a combination of locator and locatorType"""
+    def is_element_present(self, locator="", locator_type="id", element=None):
+        """Check if element is present - Either provide element or a combination of locator and locator_type"""
         try:
             if locator:  # This means if locator is not empty
-                element = self.getElement(locator, locatorType)
+                element = self.get_element(locator, locator_type)
             if element is not None:
-                self.log.info("Element present with locator: " + locator + " locatorType: " + locatorType)
+                self.log.info("Element present with locator: " + locator + " locator_type: " + locator_type)
                 return True
             else:
-                self.log.info("Element not present with locator: " + locator + " locatorType: " + locatorType)
+                self.log.info("Element not present with locator: " + locator + " locator_type: " + locator_type)
                 return False
         except:
             print("Element not found")
             return False
 
-    def isElementDisplayed(self, locator="", locatorType="id", element=None):
+    def is_element_displayed(self, locator="", locator_type="id", element=None):
         """
         Check if element is displayed
         Either provide element or a combination of locator and locatorType
@@ -152,38 +152,37 @@ class Base_Page():
         isDisplayed = False
         try:
             if locator:  # This means if locator is not empty
-                element = self.getElement(locator, locatorType)
+                element = self.get_element(locator, locator_type)
             if element is not None:
-                isDisplayed = element.is_displayed()
-                self.log.info("Element is displayed with locator: " + locator + " locatorType: " + locatorType)
+                is_display = element.is_displayed()
+                self.log.info("Element is displayed with locator: " + locator + " locator_type: " + locator_type)
             else:
-                self.log.error("Element not displayed with locator: " + locator + " locatorType: " + locatorType)
-            return isDisplayed
+                self.log.error("Element not displayed with locator: " + locator + " locator_type: " + locator_type)
+            return is_display
         except:
             print("Element not found")
             return False
 
-    def elementPresenceCheck(self, locator, byType):
+    def element_presence_check(self, locator, by_type):
         """
         Check if element is present
         """
         try:
-            elementList = self.driver.find_elements(byType, locator)
-            if len(elementList) > 0:
-                self.log.info("Element present with locator: " + locator + " locatorType: " + str(byType))
+            element_list = self.driver.find_elements(by_type, locator)
+            if len(element_list) > 0:
+                self.log.info("Element present with locator: " + locator + " locator_type: " + str(by_type))
                 return True
             else:
-                self.log.error("Element not present with locator: " + locator + " locatorType: " + str(byType))
+                self.log.error("Element not present with locator: " + locator + " locator_type: " + str(by_type))
                 return False
         except:
             self.log.info("Element not found")
             return False
 
-    def waitForElement(self, locator, locatorType="id",
-                               timeout=10, pollFrequency=0.5):
+    def waitForElement(self, locator, locator_type="id", timeout=10, pollFrequency=0.5):
         element = None
         try:
-            byType = self.getByType(locatorType)
+            byType = self.get_by_type(locator_type)
             self.log.info("Waiting for maximum :: " + str(timeout) + " :: seconds for element to be clickable")
             wait = WebDriverWait(self.driver, timeout=timeout, poll_frequency=pollFrequency, ignored_exceptions=[NoSuchElementException, ElementNotVisibleException, ElementNotSelectableException])
             element = wait.until(EC.element_to_be_clickable((byType, locator)))
@@ -203,13 +202,13 @@ class Base_Page():
         if direction == "down":
             self.driver.execute_script("window.scrollBy(0, 1000);")
             
-    def clearElement(self, locator="", locatorType="id", element=None):
+    def clear_element(self, locator="", locator_type="id", element=None):
         """Clear the content of an element - Either provide element or a combination of locator and locatorType"""
         try:
             if locator:
-                element = self.getElement(locator, locatorType)
+                element = self.get_element(locator, locator_type)
             element.clear()
-            self.log.info("Cleared content of element with locator: " + locator + " locatorType: " + locatorType)
+            self.log.info("Cleared content of element with locator: " + locator + " locator_type: " + locator_type)
         except:
-            self.log.error("Cannot clear content of the element with locator: " + locator + " locatorType: " + locatorType)
+            self.log.error("Cannot clear content of the element with locator: " + locator + " locator_type: " + locator_type)
             print_stack()

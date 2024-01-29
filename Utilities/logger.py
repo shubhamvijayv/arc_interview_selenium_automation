@@ -1,12 +1,12 @@
 import inspect
 import logging
 
-class logclass:
+class LogClass:
     
     def __init__(self, driver):
         self.driver = driver
 
-    def customLogger(logLevel=logging.DEBUG):
+    def custom_logger(logLevel=logging.DEBUG):
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
         logger.setLevel(logging.DEBUG)
