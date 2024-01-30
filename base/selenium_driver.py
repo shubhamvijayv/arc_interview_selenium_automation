@@ -1,16 +1,17 @@
-from selenium.webdriver.common.by import By
-from traceback import print_stack
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import *
 import logging
 import time
 import os
 
-import Utilities.logger as cl
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import *
+from traceback import print_stack
+from Utilities.logger import *
+
 class BasePage():
     
-    log = cl.LogClass.custom_logger(logging.DEBUG)
+    log = LogClass.custom_logger(logging.DEBUG)
 
     def __init__(self, driver):
         self.driver = driver
