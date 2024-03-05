@@ -1,6 +1,6 @@
-import logging
-import time
 import os
+import time
+import logging
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
