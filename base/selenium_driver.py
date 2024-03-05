@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 from traceback import print_stack
 from Utilities.logger import *
+
 class BasePage():
     
     log = LogClass.custom_logger(logging.DEBUG)

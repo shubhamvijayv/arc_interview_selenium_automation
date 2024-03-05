@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-
 class Locators:
     ADD_NEW_QUESTION_BUTTON = ('button.AddRecordBtn', 'css')
     SAVE_BUTTON = ('save-button', 'id')
@@ -39,7 +38,7 @@ class SubjectPageLocators:
     
 class MultipleImageChoiceQuestionPageLocators:
     INPUT_QUESTION_TITLE = ('MICQ_title', 'id')
-    INPUT_SUBJECT = ('//select[@id="MICQ_subject"]/option[5]', 'xpath')
+    INPUT_SUBJECT = ('//select[@id="MICQ_subject"]/option[6]', 'xpath')
     CHECKED_ON_CORRECT_OPTION = ('//input[@value="optionB"]', 'xpath')
     CLOSE_BUTTON = ('//button[@value="close"]', 'xpath')
     SAVE_BUTTON = ('//button[@value="Save"]', 'xpath')
