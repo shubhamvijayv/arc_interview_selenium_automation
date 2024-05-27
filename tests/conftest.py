@@ -22,7 +22,20 @@ def setup_and_teardown(request):
     if request.cls is not None:
         request.cls.driver = driver
         request.cls.log = LogClass(driver)
-    yield
+    yield driver
+    driver.quit()
+
+
+@pytest.fixture(scope='class')
+def oneTest(request):
+    global driver
+    browser = request.config.getoption("--browser")
+    webdriver_data = WebDriverFactory(browser)
+    driver = webdriver_data.get_webdriver_wait()
+    if request.cls is not None:
+        request.cls.driver = driver
+        request.cls.log = LogClass(driver)
+    yield driver
     driver.quit()
 
 
