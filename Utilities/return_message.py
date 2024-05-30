@@ -22,3 +22,6 @@ USERNAME_ALREADY = 'Username already taken'
 PARSLEY_MAXLENGTH_ANOTHER = 'This field can have 250 characters maximum'
 QUESTION_UPDATED = 'Question updated successfully'
 PARSLEY_REQUIRED_NEW = 'This field is required.'
+SUBJECTIVE_ADDED = 'Subjective question added successfully'
+PARSLEY_MAXLENGTH_HUNDRED = 'This field can have 100 characters maximum'
+

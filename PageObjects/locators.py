@@ -82,3 +82,14 @@ class ImageBasedMultipleChoiceQuestionPageLocators:
     WITHOUT_SEARCH_SUBJECT = ('//select[@id="id_subject"]/option[1]', 'xpath')
     WRONG_SUBJECT = ('//select[@id="id_subject"]/option[5]', 'xpath')
     EDIT_BUTTON = ('a.Edit', 'css')
+
+class SubjectiveQuestionPagelocators:
+    INPUT_SUBJECT = ('id_subjects', 'id')
+    INPUT_PASSAGE = ('id_passage', 'id')
+    INPUT_QUESTION_TITLE = ('id_question_title', 'id')
+    INPUT_ANSWER_KEY = ('id_answer_key', 'id')
+    INPUT_INSTRUCTION = ('id_instructions', 'id')
+    SEARCH_QUESTION = ('searchquestion', 'id')
+    LIST_ELEMENT = ('panel-heading', 'class')
+    SEARCH_SUBJECT = ('id_question_id', 'id')
+    TABLE_QUESTION_TITLE = ('EditData', 'class')

@@ -62,3 +62,5 @@ OPTION_LENGTH = 251
 MCQ_QUESTION = 'what is ur name'
 DATA_REPLACE = 'Q. '
 REPLACE_DATA = 'Q.'
+PASSAGE_DATA = 'what is ur name -(passage)'
+SELECT_SUBJECT = '--Please Select Subject---'

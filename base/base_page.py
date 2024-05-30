@@ -8,6 +8,7 @@ import json
 import dateutil.parser
 
 from datetime import timezone
+from selenium.webdriver.support.ui import Select
 from allure_commons.types import AttachmentType
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.alert import Alert
@@ -449,3 +450,27 @@ class BasePage():
             raise
         except:
             self.log.info("Locator not found. Cannot click on the element with locator: " + str(locator) + " locator_type: " + str(locator_type))
+
+    def dropdown_value_selected(self, visible_text, locator, locator_type="xpath"):
+        try:
+            select = Select(self.get_element(locator, locator_type))
+            time.sleep(1)
+            select.select_by_visible_text(visible_text)
+        except AssertionError as msg:
+            self.log.info(msg)
+            name = datetime.datetime.today().strftime('%Y-%m-%d-%M-%S')
+            allure.attach(self.driver.get_screenshot_as_png(), name=name, attachment_type=AttachmentType.PNG)
+            self.get_screenshot(visible_text + ' ' + 'not matching ')
+            raise
+    
+    def dropdown_value_selected_by_value(self, value, locator, locator_type="xpath"):
+        try:
+            select = Select(self.get_element(locator, locator_type))
+            time.sleep(1)
+            select.select_by_value(value)
+        except AssertionError as msg:
+            self.log.info(msg)
+            name = datetime.datetime.today().strftime('%Y-%m-%d-%M-%S')
+            allure.attach(self.driver.get_screenshot_as_png(), name=name, attachment_type=AttachmentType.PNG)
+            self.get_screenshot(value + ' ' + 'not matching ')
+            raise
