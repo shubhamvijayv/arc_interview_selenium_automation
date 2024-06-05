@@ -93,3 +93,12 @@ class SubjectiveQuestionPagelocators:
     LIST_ELEMENT = ('panel-heading', 'class')
     SEARCH_SUBJECT = ('id_question_id', 'id')
     TABLE_QUESTION_TITLE = ('EditData', 'class')
+
+class ImageBasedSubjectiveQuestionPageLocators:
+    INPUT_SUBJECT = ('IBSQ_subject', 'id')
+    INPUT_QUESTION = ('IBSQ_question', 'id')
+    INPUT_ANSWER_KEY = ('IBSQ_answer_key', 'id')
+    INPUT_IMAGE = ('IBSQ_image_upload', 'id')
+    TABLE_QUESTION_TITLE = ('EditData', 'class')
+    SEARCH_QUESTION = ('IBSQ_question_search', 'id')
+    SEARCH_SUBJECT = ('IBSQ_subject_search', 'id')

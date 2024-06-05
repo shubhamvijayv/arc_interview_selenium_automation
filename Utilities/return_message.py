@@ -24,4 +24,4 @@ QUESTION_UPDATED = 'Question updated successfully'
 PARSLEY_REQUIRED_NEW = 'This field is required.'
 SUBJECTIVE_ADDED = 'Subjective question added successfully'
 PARSLEY_MAXLENGTH_HUNDRED = 'This field can have 100 characters maximum'
-
+PARSLEY_FILEEXTENSION = 'The extension must be jpg, jpeg, png'
