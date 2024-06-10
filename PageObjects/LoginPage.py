@@ -48,3 +48,9 @@ class Login(BasePage):
 
     def click_on_image_based_subjective_question_section(self):
         return self.element_click(*LoginPageLocators.CLICK_TEXT_IMAGE_BASED_SUBJECTIVE_QUESTION_XPATH)
+    
+    def click_on_excel_question_section(self):
+        return self.element_click(*LoginPageLocators.CLICK_TEXT_EXCEL_QUESTION_XPATH)
+    
+    def click_on_passage_content_section(self):
+        return self.element_click(*LoginPageLocators.CLICK_TEXT_PASSAGE_CONTENT_XPATH)

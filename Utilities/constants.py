@@ -66,4 +66,5 @@ PASSAGE_DATA = 'what is ur name -(passage)'
 SELECT_SUBJECT = '--Please Select Subject---'
 IMAGE_ONE = os.getcwd() + '/data/Screenshot3.gif'
 ENGLISH = 'English'
+PASSAGE = 'passage'
 

@@ -31,7 +31,9 @@ class LoginPageLocators:
     CLICK_TEXT_IMAGE_BASED_MULTIPLE_CHOICE_QUESTION_XPATH = ('Image Based Multiple Choice Questions', "link")
     CLICK_TEXT_SUBJECTIVE_QUESTION_XPATH = ('Subjective Questions', "link")
     CLICK_TEXT_IMAGE_BASED_SUBJECTIVE_QUESTION_XPATH = ('Image Based Subjective Questions', "link")
-    
+    CLICK_TEXT_EXCEL_QUESTION_XPATH = ('Excel Questions', 'link')
+    CLICK_TEXT_PASSAGE_CONTENT_XPATH = ('Passage/Instructions Content', 'link')
+
 class SubjectPageLocators:
     INPUT_SUBJECT = ('subject', 'name')
     GET_TEXT_SUBJECT = ('//*[@id="demo"]/tr[1]/td[1]', 'xpath')
@@ -102,3 +104,19 @@ class ImageBasedSubjectiveQuestionPageLocators:
     TABLE_QUESTION_TITLE = ('EditData', 'class')
     SEARCH_QUESTION = ('IBSQ_question_search', 'id')
     SEARCH_SUBJECT = ('IBSQ_subject_search', 'id')
+
+class ExcelQuestionPageLocators:
+    INPUT_QUESTION = ('excel_title', 'id')
+    INPUT_DESCRIPTION = ('excel_description', 'id')
+    SAVE_BUTTON = ('add_question_btn', 'id')
+    ADD_QUESTION_BUTTON = ('addexcelbtn', 'id')
+    UPLOAD_IMAGE = ('exel_image_upload', 'id')
+    IMAGE_BUTTON = ('add_image_btn', 'id')
+
+class PassageContentPageLocators:
+    ADD_NEW_QUESTION_BUTTON = ('AddRecordBtn', 'class')
+    INPUT_TYPE = ('passage_settings_types', 'id')
+    INPUT_QUESTION = ('passage_settings_title', 'id')
+    INPUT_SUBJECT = ('passage_content_subject', 'id')
+    INPUT_DESCRIPTION = ('passage_settings_description', 'id')
+    INPUT_STATUS = ('passage_settings_status', 'id')
