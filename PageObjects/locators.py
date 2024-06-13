@@ -120,3 +120,6 @@ class PassageContentPageLocators:
     INPUT_SUBJECT = ('passage_content_subject', 'id')
     INPUT_DESCRIPTION = ('passage_settings_description', 'id')
     INPUT_STATUS = ('passage_settings_status', 'id')
+    TABLE_QUESTION_TITLE = ('title_column', 'id')
+    EDIT_BUTTON = ('btn-info', 'class')
+    SEARCH_TYPES = ('id_types', 'id')

@@ -67,4 +67,7 @@ SELECT_SUBJECT = '--Please Select Subject---'
 IMAGE_ONE = os.getcwd() + '/data/Screenshot3.gif'
 ENGLISH = 'English'
 PASSAGE = 'passage'
+INSTRUCTION = 'instruction'
+TYPING = 'typing'
+LENGTH_DATA = 5001
 
