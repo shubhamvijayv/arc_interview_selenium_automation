@@ -33,6 +33,7 @@ class LoginPageLocators:
     CLICK_TEXT_IMAGE_BASED_SUBJECTIVE_QUESTION_XPATH = ('Image Based Subjective Questions', "link")
     CLICK_TEXT_EXCEL_QUESTION_XPATH = ('Excel Questions', 'link')
     CLICK_TEXT_PASSAGE_CONTENT_XPATH = ('Passage/Instructions Content', 'link')
+    CLICK_TEXT_PAPER_SETUP_XPATH = ('Paper Setup', 'link')
 
 class SubjectPageLocators:
     INPUT_SUBJECT = ('subject', 'name')
@@ -123,3 +124,17 @@ class PassageContentPageLocators:
     TABLE_QUESTION_TITLE = ('title_column', 'id')
     EDIT_BUTTON = ('btn-info', 'class')
     SEARCH_TYPES = ('id_types', 'id')
+
+class PaperSetupPageLocators:
+    TABLE_DESCRIPTION_TITLE = ('width40per', 'class')
+    DELETE_BUTTON = ('//button[@class=" btn btn-danger btn-sm waves-effect waves-light"]', 'xpath')
+    PAPER_MAKING_SECTION = ('div#add_paper_div', 'css')
+    ADD_PAPER_BUTTON = ('//span[@id="add_paper_btn"]', 'xpath')
+    NEXT_BUTTON = ('btnNext', 'id')
+    EDIT_BUTTON = ('edit_paper', 'class')
+    INPUT_DEPARTMENT = ('Department', 'id')
+    INPUT_TEST_LEVEL = ('test_level_id', 'id')
+    INPUT_TEST_PAPER = ('PaperSetName', 'id')
+    INPUT_DESCRIPTION = ('Descriptions', 'id')
+    SUBJECT_MARKS = ('subject_marks_5', 'id')
+    SHOW_BUTTON = ('//button[@id="heading5"]', 'xpath')

@@ -29,3 +29,5 @@ PASSAGE_ADDED = 'Content added successfully'
 TYPING_TYPE_VALIDATION = 'Passage type typing can only be linked with Typing test subject. English'
 EXCEL_TYPE_VALIDATION = 'Passage type typing can only be linked with Typing test subject. Excel'
 PARSLEY_MAXLENGTH_VALIDATION = 'This field can have 5000 characters maximum'
+TASK_COMPLETED = "Task completed, add questions now."
+QUESTION_LINKED = 'Questions linked successfully'
