@@ -41,7 +41,7 @@ class PaperSetupQuestion(PassageContentQuestion):
         self.subjective_question_added_success_message(QUESTION_LINKED)
 
     def click_on_edit_button_then_update_the_something(self, data):
-        self.wait_for_element(*PaperSetupPageLocators.EDIT_BUTTON)
+        time.sleep(5)
         self.element_click(*PaperSetupPageLocators.EDIT_BUTTON)
         time.sleep(5)
         self.clear_field(*PaperSetupPageLocators.SUBJECT_MARKS)
@@ -51,3 +51,13 @@ class PaperSetupQuestion(PassageContentQuestion):
 
     def click_on_the_save_button(self):
         self.element_click(*PassageContentPageLocators.ADD_NEW_QUESTION_BUTTON)
+
+    def click_on_add_new_grade_button(self):
+        self.element_click(*PaperSetupPageLocators.ADD_GRADE_BUTTON)
+
+    def fill_grade_form_to_option(self, from_grade, to_grade, grade_title):
+        self.send_keys(from_grade, *PaperSetupPageLocators.FROM_GRADE)
+        self.send_keys(to_grade, *PaperSetupPageLocators.TO_GRADE)
+        self.send_keys(grade_title, *PaperSetupPageLocators.GRADE_TITLE)
+        self.element_click(*Locators.SAVE_BUTTON)
+        self.subjective_question_added_success_message(GRADE_ADDED)

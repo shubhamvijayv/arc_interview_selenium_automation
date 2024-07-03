@@ -86,3 +86,15 @@ class TestPaperSetupQuestion:
     def test_010_Verify_click_on_save_button(self):
         """Verify_click_on_edit_button_then_update_the_something"""
         self.paper_setup_question.click_on_the_save_button()
+
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.smoke
+    def test_011_Verify_click_on_grade_button(self):
+        """Verify_click_on_grade_button"""
+        self.paper_setup_question.click_on_add_new_grade_button()
+
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.smoke
+    def test_012_Verify_fill_grade_form_to_option(self):
+        """Verify_fill_grade_form_to_option"""
+        self.paper_setup_question.fill_grade_form_to_option(0, 25, 'd')

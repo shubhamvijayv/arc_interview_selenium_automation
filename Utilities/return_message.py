@@ -31,3 +31,5 @@ EXCEL_TYPE_VALIDATION = 'Passage type typing can only be linked with Typing test
 PARSLEY_MAXLENGTH_VALIDATION = 'This field can have 5000 characters maximum'
 TASK_COMPLETED = "Task completed, add questions now."
 QUESTION_LINKED = 'Questions linked successfully'
+GRADE_ADDED = 'Grade added successfully'
+

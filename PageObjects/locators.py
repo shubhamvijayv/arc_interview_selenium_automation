@@ -138,3 +138,8 @@ class PaperSetupPageLocators:
     INPUT_DESCRIPTION = ('Descriptions', 'id')
     SUBJECT_MARKS = ('subject_marks_5', 'id')
     SHOW_BUTTON = ('//button[@id="heading5"]', 'xpath')
+    ADD_GRADE_BUTTON = ('add_grades_btn', 'id')
+    FROM_GRADE = ('gradeFrom', 'id')
+    TO_GRADE = ('gradeTo', 'id')
+    GRADE_TITLE = ('gradeTitle', 'id')
+
