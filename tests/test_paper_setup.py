@@ -97,4 +97,4 @@ class TestPaperSetupQuestion:
     @pytest.mark.smoke
     def test_012_Verify_fill_grade_form_to_option(self):
         """Verify_fill_grade_form_to_option"""
-        self.paper_setup_question.fill_grade_form_to_option(0, 25, 'd')
+        self.paper_setup_question.fill_grade_form_to_option(ZERO, 25, 'd')
